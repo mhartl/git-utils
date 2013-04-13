@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Copyright (c) 2013 Michael Hartl
+# Released under the MIT License (http://opensource.org/licenses/MIT)
+
+# Undoes the last commit and places the changes back in the staging area.
+git reset --soft HEAD^

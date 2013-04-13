@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Copyright (c) 2013 Michael Hartl
+# Released under the MIT License (http://opensource.org/licenses/MIT)
+
+# Switches to the first branch matching the argument.
+# E.g., 'git switch foobar' switches to 'the-foobar-branch'.
+if [ $# -ne 1 ]
+then
+  echo "Usage: `basename $0` <pattern>"
+  exit 0
+fi
+git branch | grep $1 | xargs git checkout

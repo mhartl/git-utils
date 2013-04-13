@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Copyright (c) 2013 Michael Hartl
+# Released under the MIT License (http://opensource.org/licenses/MIT)
+
+# Deletes every branch already merged into current branch.
+git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
