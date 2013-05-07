@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Copyright (c) 2013 Michael Hartl
+# Released under the MIT License (http://opensource.org/licenses/MIT)
+
+# Pushes the current branch up to origin.
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+git push origin $CURRENT_BRANCH
