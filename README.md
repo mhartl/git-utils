@@ -1,8 +1,6 @@
 # Git utilities
 
-This repo contains some useful Git utility scripts. The only prerequisites are Git and bash.
-
-The highlights are `git open` and `git undo`, which you'll never understand how you did without.
+This repo contains some useful Git utility scripts. The only prerequisites are Git and bash. The highlights are `git open` and `git undo`, which you'll never understand how you did without.
 
 * `git amend`: alias for `git commit --amend`
 * `git anal`: makes a commit with the message "Make anal changes"
