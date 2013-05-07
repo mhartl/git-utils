@@ -12,9 +12,9 @@
 CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
 if [ $# -eq 1 ]
 then
-  OTHER_BRANCH=$1
+  TARGET_BRANCH=$1
 else
-  OTHER_BRANCH="master"
+  TARGET_BRANCH="master"
 fi
-git checkout $OTHER_BRANCH
+git checkout $TARGET_BRANCH
 git merge --no-ff --log $CURRENT_BRANCH
