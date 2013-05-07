@@ -3,7 +3,7 @@
 # Copyright (c) 2013 Michael Hartl
 # Released under the MIT License (http://opensource.org/licenses/MIT)
 
-# Switches to the first branch matching the argument.
+# Switches to the first branch matching the given pattern.
 # E.g., 'git switch foobar' switches to 'the-foobar-branch'.
 if [ $# -ne 1 ]
 then
