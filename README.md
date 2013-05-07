@@ -1,6 +1,6 @@
 # Git utilities
 
-This repo contains some useful Git utility scripts. To install them, clone the repo or download a ZIP file and place the scripts somewhere on your path (e.g., in `~/bin` or `/usr/local/bin`). The only prerequisites are Git and bash.
+This repo contains some useful Git utility scripts. The only prerequisites are Git and bash.
 
 The highlights are `git open` and `git undo`, which you'll never understand how you did without.
 
@@ -11,3 +11,21 @@ The highlights are `git open` and `git undo`, which you'll never understand how 
 * `git open`: opens the remote page for the repo
 * `git switch`: switches to the first branch matching the argument
 * `git undo`: undoes the last commit
+
+## Installation
+
+To install the scripts, clone the repo or download a ZIP file and place the scripts somewhere on your path (e.g., in `~/bin` or `/usr/local/bin`). Here's one possible method using symlinks:
+    
+    cd
+    mkdir repos
+    cd repos/
+    git clone https://github.com/mhartl/git-utils.git
+    cd /usr/local/bin
+    ln -s ~/repos/git-utils/* .
+ 
+To test the installation, try using one of the scripts:
+
+    cd ~/repos/git-utils
+    git open
+
+If `git open` opens a browser window with `README`, the installation worked.
