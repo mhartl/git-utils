@@ -3,5 +3,5 @@
 # Copyright (c) 2013 Michael Hartl
 # Released under the MIT License (http://opensource.org/licenses/MIT)
 
-# Opens the remote page for the project.
+# Opens the remote page for the repo.
 echo `git config --get remote.origin.url` | sed 's/\.git//' | xargs open 
