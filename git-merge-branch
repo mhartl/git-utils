@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Copyright (c) 2013 Michael Hartl
+# Released under the MIT License (http://opensource.org/licenses/MIT)
+
+# Merges the current branch into the given branch (defaults to master).
+# E.g., 'git merge-branch foobar' merges the current branch into foobar.
+# 'git merge-branch', merges the current branch into master.
+# git merge-branch uses the --no-ff --log options to ensure that the 
+# merge creates a new commit object and that the individual commits appear
+# in the log file.
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+if [ $# -eq 1 ]
+then
+  BRANCH=$1
+else
+  BRANCH="master"
+fi
+git checkout $BRANCH
+git merge --no-ff --log $CURRENT_BRANCH
