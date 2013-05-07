@@ -14,7 +14,7 @@ The highlights are `git open` and `git undo`, which you'll never understand how 
 
 ## Installation
 
-To install the scripts, clone the repo or download a ZIP file and place the scripts somewhere on your path (e.g., in `~/bin` or `/usr/local/bin`). Here's one possible method using symlinks:
+To install the scripts, clone the repo or download a ZIP file and place the scripts somewhere on your path (e.g., in `~/bin` or `/usr/local/bin`). Here's one possible method using symlinks, assuming that `~/bin` exists and is on your path:
     
     cd
     mkdir repos
