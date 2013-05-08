@@ -4,4 +4,15 @@
 # Released under the MIT License (http://opensource.org/licenses/MIT)
 
 # Opens the remote page for the repo.
-echo `git config --get remote.origin.url` | sed 's/\.git//' | xargs open 
+PLATFORM=`uname`
+if [[ "$PLATFORM" == 'Linux' ]]; then
+    SED='sed -r'
+elif [[ "$PLATFORM" == 'Darwin' ]]; then
+    SED='sed -E'
+else
+    echo "Unknown platform"
+    exit 1
+fi
+URL=`git config --get remote.origin.url`
+GIT_PATTERN='s/git@(.*):(.*)\//https:\/\/\1\/\2\//' 
+echo $URL | $SED $GIT_PATTERN | sed 's/\.git//' | xargs open 
