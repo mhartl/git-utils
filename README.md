@@ -26,4 +26,4 @@ To test the installation, try using one of the scripts, such as `git open`:
     cd ~/repos/git-utils
     git open
 
-If `git open` opens a browser window with this `README`, the installation worked.
+If `git open` opens a browser window with this `README`, then the installation worked.
