@@ -19,7 +19,7 @@ To install the scripts, clone the repo or download a ZIP file and place the scri
     cd repos/
     git clone https://github.com/mhartl/git-utils.git
     cd ~/bin
-    ln -s ~/repos/git-utils/git-* .
+    ln -sf ~/repos/git-utils/git-* .
  
 To test the installation, try using one of the scripts:
 
