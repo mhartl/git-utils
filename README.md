@@ -21,7 +21,7 @@ To install the scripts, clone the repo or download a ZIP file and place the scri
     cd ~/bin
     ln -sf ~/repos/git-utils/git-* .
  
-To test the installation, try using one of the scripts:
+To test the installation, try using one of the scripts, such as `git open`:
 
     cd ~/repos/git-utils
     git open
