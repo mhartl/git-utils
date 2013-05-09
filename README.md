@@ -20,6 +20,11 @@ To install the scripts, clone the repo or download a ZIP file and place the scri
     git clone https://github.com/mhartl/git-utils.git
     cd ~/bin
     ln -sf ~/repos/git-utils/git-* .
+
+Using this method, you can easily update your installation by pulling in the latest changes:
+
+    cd ~/repos/git-utils/
+    git pull
  
 To test the installation, try using one of the scripts, such as `git open`:
 
