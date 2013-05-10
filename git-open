@@ -5,5 +5,5 @@
 
 # Opens the remote page for the repo (OS X only).
 URL=`git config --get remote.origin.url`
-GIT_PATTERN='s/git@(.*):(.*)\//https:\/\/\1\/\2\//' 
-echo $URL | sed -E $GIT_PATTERN | sed 's/\.git//' | xargs open 
+GIT_PATTERN='s/git@(.*):(.*)/https:\/\/\1\/\2/' 
+echo $URL | sed -E $GIT_PATTERN | sed 's/(\.git)//' | xargs open 
