@@ -4,7 +4,7 @@
 # Released under the MIT License (http://opensource.org/licenses/MIT)
 
 # Deletes the remote branch on origin if it is safe to do so.
-eval "OUT=\"`git log ..origin/$1`\""
+OUT=`git log ..origin/$1`
 if [[ $OUT != "" ]]; then
   printf '%s\n'
   echo ">>>>> ERROR -- Cannot auto-delete remote branch! <<<<<"
@@ -13,6 +13,5 @@ if [[ $OUT != "" ]]; then
   printf '%s\n'
   exit 0
 else
-  echo "deleting this branch remotely"
   git push origin :$1
 fi

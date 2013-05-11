@@ -8,7 +8,7 @@ This repo contains some Git utility scripts. The only prerequisites are Git and 
 * `git merge-branch [branch]`: merges current branch into given branch (defaults to `master`)
 * `git open`: opens the remote page for the repo (OS X only)
 * `git push-branch`: pushes the current branch up to origin
-* `git delete-remote-branch`: deletes the remote branch on origin if it is safe to do so
+* `git delete-remote-branch`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern
 * `git undo`: undoes the last commit
 
