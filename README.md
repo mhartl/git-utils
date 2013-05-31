@@ -7,6 +7,7 @@ This repo contains some Git utility scripts. The only prerequisites are Git and 
 * `git cleanup`: deletes every branch already merged into current branch
 * `git merge-branch [branch]`: merges current branch into given branch (defaults to `master`)
 * `git open`: opens the remote page for the repo (OS X only)
+* `git polish`: makes a commit with the message "Polish"
 * `git push-branch`: pushes the current branch up to origin
 * `git delete-remote-branch`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern
@@ -15,7 +16,7 @@ This repo contains some Git utility scripts. The only prerequisites are Git and 
 ## Installation
 
 To install the scripts, clone the repo or download a ZIP file and place the scripts somewhere on your path (e.g., in `~/bin` or `/usr/local/bin`). Here's one possible method using symlinks, assuming that `~/bin` exists and is on your path:
-    
+
     cd
     mkdir repos
     cd repos/
@@ -27,7 +28,7 @@ Using this method, you can easily update your installation by pulling in the lat
 
     cd ~/repos/git-utils/
     git pull
- 
+
 To test the installation, try using one of the scripts, such as `git open`:
 
     cd ~/repos/git-utils
