@@ -1,6 +1,8 @@
 # Git utilities
 
-This repo contains some Git utility scripts. The only prerequisites are Git and bash. The highlights are `git open` and `git undo`, which you'll never understand how you did without.
+This repo contains some Git utility scripts. The only prerequisites are Git and bash. The highlights are `git open`, `git push-branch`, and `git undo`, which you'll never understand how you did without.
+
+## Commands
 
 * `git amend`: alias for `git commit --amend`
 * `git anal` (use with caution): makes a commit with the message "Make anal changes"
@@ -8,10 +10,20 @@ This repo contains some Git utility scripts. The only prerequisites are Git and 
 * `git merge-branch [branch]`: merges current branch into given branch (defaults to `master`)
 * `git open`: opens the remote page for the repo (OS X only)
 * `git polish`: makes a commit with the message "Polish"
-* `git push-branch`: pushes the current branch up to origin
-* `git delete-remote-branch`: deletes the remote branch if it is safe to do so
+* `git push-branch`: pushes the current branch up to remote (defaults to `origin`)
+* `git delete-remote-branch <branch>`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern
 * `git undo`: undoes the last commit
+
+### git push-branch
+
+`git branch push` creates a remote branch at `origin` with the name of the current branch:
+
+    $ git branch-push
+    * [new branch]      add-markdown-support -> add-markdown-support
+
+
+`git push-branch` accepts any options valid for `git push`.
 
 ## Installation
 
