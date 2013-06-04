@@ -17,7 +17,17 @@ This repo contains some Git utility scripts. The only dependency is Git. The hig
 * `git sync`: syncs the local master with remote
 * `git undo`: undoes the last commit
 
-Some of these commands deserve further explanation:
+## Aliases
+
+Here are some suggested aliases:
+
+    git config --global alias.mb merge-branch
+    git config --global alias.pr pull-request
+    git config --global alias.pb push-branch
+
+## Further details
+
+Some of these commands deserve further explanation.
 
 ### git merge-branch
 
