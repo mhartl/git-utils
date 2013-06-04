@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Copyright (c) 2013 Michael Hartl
+# Released under the MIT License (http://opensource.org/licenses/MIT)
+
+# Issues a pull request.
+URL=`git config --get remote.origin.url`
+GIT_PATTERN='s/(.*)@(.*):(.*)/https:\/\/\2\/\3/'
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if [[ $URL =~ bitbucket ]]
+then
+  PR_PATH="\/pull-request\/new"
+else
+  PR_PATH="\/pull\/new\/$CURRENT_BRANCH"
+fi
+
+git push-branch
+echo $URL | sed -E $GIT_PATTERN \
+          | sed "s/\.git/$PR_PATH/" \
+          | xargs open

@@ -1,6 +1,6 @@
 # Git utilities
 
-This repo contains some Git utility scripts. The only prerequisites are Git and bash. The highlights are `git open`, `git push-branch`, and `git undo`, which you'll never understand how you did without.
+This repo contains some Git utility scripts. The only dependency is Git. The highlights are `git open`, `git pull-request`, `git push-branch`, and `git undo`, which you'll never understand how you did without.
 
 ## Commands
 
@@ -10,20 +10,57 @@ This repo contains some Git utility scripts. The only prerequisites are Git and 
 * `git merge-branch [branch]`: merges current branch into given branch (defaults to `master`)
 * `git open`: opens the remote page for the repo (OS X only)
 * `git polish`: makes a commit with the message "Polish"
-* `git push-branch`: pushes the current branch up to remote (defaults to `origin`)
+* `git pull-request`: issues a pull request (OS X only)
+* `git push-branch`: pushes the current branch up to origin
 * `git delete-remote-branch <branch>`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern
+* `git sync`: syncs the local master with remote
 * `git undo`: undoes the last commit
+
+Some of these commands deserve further explanation:
+
+### git merge-branch
+
+`git merge-branch [target]` merges the current branch into the target branch (defaults to `master`). On a branch called `add-markdown-support`, `git story-merge` is equivalent to the following:
+
+    $ git checkout master
+    $ git merge --no-ff --log add-markdown-support
+
+Note that this effectively changes the default merge behavior from fast-forward to no-fast-forward, which makes it possible to use `git log` to see which of the commit objects together have implemented a story. As noted in [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/),
+
+> The `--no-ff` flag causes the merge to always create a new commit object, even if the merge could be performed with a fast-forward. This avoids losing information about the historical existence of a feature branch and groups together all commits that together added the feature… Yes, it will create a few more (empty) commit objects, but the gain is much bigger than that cost.
+
+In addition, the `--log` option puts the commit messages from the individual commits in the merge message, which is especially useful for viewing the full diff represented by the commit.
 
 ### git push-branch
 
-`git branch push` creates a remote branch at `origin` with the name of the current branch:
+`git push-branch` creates a remote branch at `origin` with the name of the current branch:
 
     $ git branch-push
     * [new branch]      add-markdown-support -> add-markdown-support
 
-
 `git push-branch` accepts any options valid for `git push`.
+
+
+### git sync
+
+`git sync` syncs the local `master` with the remote `master`. On a branch called `add-markdown-support`, `git sync` is equivalent to the following:
+
+    $ git checkout master
+    $ git pull
+    $ git checkout add-markdown-support
+
+The purpose of `git sync` is to prepare the current branch for rebasing against `master`:
+
+    $ git sync
+    $ git rebase master
+
+(This is essentially equivalent to
+
+    $ git fetch
+    $ git rebase origin/master
+
+but I don't like having `master` and `origin/master` be different since that means you have to remember to run `git pull` on `master` some time down the line.)
 
 ## Installation
 
