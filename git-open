@@ -6,5 +6,23 @@
 
 # Opens the remote page for the repo (OS X only).
 URL=`git config --get remote.origin.url`
-GIT_PATTERN='s/(.*)@(.*):(.*)/https:\/\/\2\/\3/'
-echo $URL | sed -E $GIT_PATTERN | sed 's/\.git//' | xargs open
+# If it's ssh, drop the port
+CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if [[ $URL =~ bitbucket ]]
+then
+  GIT_PATTERN='s/(.*)@(.*):(.*)/https:\/\/\2/'
+elif [[ $URL =~ github ]]
+then
+  GIT_PATTERN='s/(.*)@(.*):(.*)/https:\/\/\2/'
+else
+  if [[ $URL =~ ssh:// ]]
+  then
+    GIT_PATTERN='s/(.*)@(.*):([^\/]*)\/([^\/]*)\/(.*)\.git/https:\/\/\2\/projects\/\4\/repos\/\5\/browse\?at='"$CURRENT_BRANCH"/
+  else
+    GIT_PATTERN='s/(.*)@(.*):([^\/]*)\/([^\/]*)\/(.*)\.git/https:\/\/\2:\3\/projects\/\4\/repos\/\5\/browse\?at='"$CURRENT_BRANCH"/
+  fi
+fi
+
+echo $URL | sed -E $GIT_PATTERN \
+          | xargs open

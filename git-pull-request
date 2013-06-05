@@ -1,21 +1,28 @@
-#!/bin/sh
+#!/bin/sh 
 
 # Copyright (c) 2013 Michael Hartl
 # Released under the MIT License (http://opensource.org/licenses/MIT)
 
 # Issues a pull request.
 URL=`git config --get remote.origin.url`
-GIT_PATTERN='s/(.*)@(.*):(.*)/https:\/\/\2\/\3/'
+# If it's ssh, drop the port
 CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
 
 if [[ $URL =~ bitbucket ]]
 then
-  PR_PATH="\/pull-request\/new"
+  GIT_PATTERN='s/(.*)@(.*):(.*)/https:\/\/\2\/\/pull-request\/new/'
+elif [[ $URL =~ github ]]
+then
+  GIT_PATTERN='s/(.*)@(.*):(.*)/https:\/\/\2\/\/pull\/new\/'"$CURRENT_BRANCH"/
 else
-  PR_PATH="\/pull\/new\/$CURRENT_BRANCH"
+  if [[ $URL =~ ssh:// ]]
+  then
+    GIT_PATTERN='s/(.*)@(.*):([^\/]*)\/([^\/]*)\/(.*)\.git/https:\/\/\2\/projects\/\4\/repos\/\5\/pull-requests\?create\&sourceBranch='"$CURRENT_BRANCH"/
+  else
+    GIT_PATTERN='s/(.*)@(.*):([^\/]*)\/([^\/]*)\/(.*)\.git/https:\/\/\2:\3\/projects\/\4\/repos\/\5\/pull-requests\?create\&sourceBranch='"$CURRENT_BRANCH"/
+  fi
 fi
 
 git push-branch
 echo $URL | sed -E $GIT_PATTERN \
-          | sed "s/\.git/$PR_PATH/" \
           | xargs open
