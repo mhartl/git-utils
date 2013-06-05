@@ -6,23 +6,36 @@
 
 # Opens the remote page for the repo (OS X only).
 URL=`git config --get remote.origin.url`
-# If it's ssh, drop the port
 CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
 
+SERVICE=stash
+PROTOCOL=ssh
 if [[ $URL =~ bitbucket ]]
 then
-  GIT_PATTERN='s/(.*)@(.*):(.*)/https:\/\/\2/'
+  SERVICE=bitbucket
 elif [[ $URL =~ github ]]
 then
-  GIT_PATTERN='s/(.*)@(.*):(.*)/https:\/\/\2/'
-else
-  if [[ $URL =~ ssh:// ]]
-  then
-    GIT_PATTERN='s/(.*)@(.*):([^\/]*)\/([^\/]*)\/(.*)\.git/https:\/\/\2\/projects\/\4\/repos\/\5\/browse\?at='"$CURRENT_BRANCH"/
-  else
-    GIT_PATTERN='s/(.*)@(.*):([^\/]*)\/([^\/]*)\/(.*)\.git/https:\/\/\2:\3\/projects\/\4\/repos\/\5\/browse\?at='"$CURRENT_BRANCH"/
-  fi
+  SERVICE=github
+fi
+if [[ $URL =~ https:// || $URL =~ http:// ]]
+then
+  PROTOCOL=http
 fi
 
-echo $URL | sed -E $GIT_PATTERN \
-          | xargs open
+case $SERVICE-$PROTOCOL in
+  stash-ssh )
+    # If it's ssh, drop the port
+    GIT_PATTERN='s/(.*)@([^:]*):?([^\/]*)\/([^\/]*)\/(.*)\.git/https:\/\/\2\/projects\/\4\/repos\/\5\/browse\?at='"$CURRENT_BRANCH"/
+    ;;
+  stash-http )
+    GIT_PATTERN='s/(.*)@([^:\/]*)(:?[^\/]*)\/(.*)scm\/([^\/]*)\/(.*)\.git/https:\/\/\2\3\/\4projects\/\5\/repos\/\6\/browse\?at='"$CURRENT_BRANCH"/
+    ;;
+  *-ssh )
+    GIT_PATTERN='s/(.*)@(.*):(.*)\.git/https:\/\/\2\/\3/'
+    ;;
+  *-http )
+    GIT_PATTERN='s/https?\:\/\/(([^@]*)@)?(.*)\.git/https:\/\/\3/'
+    ;;
+esac
+
+echo $URL | sed -E $GIT_PATTERN | xargs open
