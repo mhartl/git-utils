@@ -8,7 +8,7 @@ The commands are especially useful when combined with [pivotal-github](https://g
 
 * `git amend`: alias for `git commit --amend`
 * `git anal` (use with caution): makes a commit with the message "Make anal changes"
-* `git cleanup`: deletes every branch already merged into current branch
+* `git cleanup`: deletes every branch already merged into current branch (apart from `master`)
 * `git merge-branch [branch]`: merges current branch into given branch (defaults to `master`)
 * `git open`: opens the remote page for the repo (OS X only)
 * `git polish`: makes a commit with the message "Polish"
