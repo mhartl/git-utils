@@ -35,7 +35,6 @@ test_open () {
 test_open https://mwatson@bitbucket.org/atlassian/amps.git https://bitbucket.org/atlassian/amps
 test_open git@bitbucket.org:atlassian/amps.git https://bitbucket.org/atlassian/amps
 test_open git@github.com:mhartl/git-utils.git https://github.com/mhartl/git-utils
-test_open git://github.com/mhartl/git-utils.git https://github.com/mhartl/git-utils
 test_open https://github.com/mhartl/git-utils.git https://github.com/mhartl/git-utils
 test_open ssh://git@stash.atlassian.com:7999/stash/stash.git https://stash.atlassian.com/projects/stash/repos/stash/browse?at=test-br
 test_open https://mwatson@stash.atlassian.com:7990/scm/stash/stash.git https://stash.atlassian.com:7990/projects/stash/repos/stash/browse?at=test-br
@@ -60,7 +59,6 @@ test_pr () {
 test_pr https://mwatson@bitbucket.org/atlassian/amps.git https://bitbucket.org/atlassian/amps/pull-request/new
 test_pr git@bitbucket.org:atlassian/amps.git https://bitbucket.org/atlassian/amps/pull-request/new
 test_pr git@github.com:mhartl/git-utils.git https://github.com/mhartl/git-utils/pull/new/test-br
-test_pr git://github.com/mhartl/git-utils.git https://github.com/mhartl/git-utils/pull/new/test-br
 test_pr https://github.com/mhartl/git-utils.git https://github.com/mhartl/git-utils/pull/new/test-br
 test_pr ssh://git@stash.atlassian.com:7999/stash/stash.git https://stash.atlassian.com/projects/stash/repos/stash/pull-requests?create\&sourceBranch=test-br
 test_pr https://mwatson@stash.atlassian.com:7990/scm/stash/stash.git https://stash.atlassian.com:7990/projects/stash/repos/stash/pull-requests?create\&sourceBranch=test-br
