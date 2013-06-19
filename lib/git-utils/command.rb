@@ -73,6 +73,10 @@ class Command
     end
   end
 
+  def run!
+    system cmd
+  end
+
   private
 
     # Returns an argument string based on given arguments.
