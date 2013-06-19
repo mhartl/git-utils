@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Add some Git utilities}
   gem.summary       = %q{See the README for full documentation}
   gem.homepage      = "https://github.com/mhartl/git-utils"
+  gem.license       = "MIT"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
