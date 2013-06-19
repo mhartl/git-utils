@@ -1,41 +1,6 @@
 #!/usr/bin/env ruby
-
-# Copyright (c) 2013 Michael Hartl
-# Copyright (c) 2013 Aleksandar Simic
-# Released under the MIT License (http://opensource.org/licenses/MIT)
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'git-utils/open'
 
 # Opens the remote page for the repo (OS X only).
-URL=`git config --get remote.origin.url`
-CURRENT_BRANCH=`git rev-parse --abbrev-ref HEAD`
-
-SERVICE=stash
-PROTOCOL=ssh
-if [[ $URL =~ bitbucket ]]
-then
-  SERVICE=bitbucket
-elif [[ $URL =~ github ]]
-then
-  SERVICE=github
-fi
-if [[ $URL =~ https:// || $URL =~ http:// ]]
-then
-  PROTOCOL=http
-fi
-
-case $SERVICE-$PROTOCOL in
-  stash-ssh )
-    # If it's ssh, drop the port
-    GIT_PATTERN='s/(.*)@([^:]*):?([^\/]*)\/([^\/]*)\/(.*)\.git/https:\/\/\2\/projects\/\4\/repos\/\5\/browse\?at='"$CURRENT_BRANCH"/
-    ;;
-  stash-http )
-    GIT_PATTERN='s/(.*)@([^:\/]*)(:?[^\/]*)\/(.*)scm\/([^\/]*)\/(.*)\.git/https:\/\/\2\3\/\4projects\/\5\/repos\/\6\/browse\?at='"$CURRENT_BRANCH"/
-    ;;
-  *-ssh )
-    GIT_PATTERN='s/(.*)@(.*):(.*)\.git/https:\/\/\2\/\3/'
-    ;;
-  *-http )
-    GIT_PATTERN='s/https?\:\/\/(([^@]*)@)?(.*)\.git/https:\/\/\3/'
-    ;;
-esac
-
-echo $URL | sed -E $GIT_PATTERN | xargs open
+exit Command.run!(Open, ARGV.dup)

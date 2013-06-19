@@ -18,6 +18,8 @@ class Open < Command
 
   # Returns the name of the repository service.
   # It's currently GitHub, Bitbucket, or Stash.
+  # We return blank for an unknown service; the command will still
+  # often work in that case.
   def service
     if origin_url =~ /github/i
       'github'
@@ -26,11 +28,11 @@ class Open < Command
     elsif origin_url =~ /stash/i
       'stash'
     else
-      ""
+      ''
     end
   end
 
-  # Returns the protocol of the origin URL.
+  # Returns the protocol of the origin URL (defaults to ssh).
   def protocol
     if origin_url =~ /https?:\/\//
       'http'
@@ -61,7 +63,7 @@ class Open < Command
 
   # Returns a command appropriate for executing at the command line
   def cmd
-    c = ["git open #{page_url}"]
+    c = ["open #{page_url}"]
     c << argument_string(unknown_options) unless unknown_options.empty?
     c.join("\n")
   end
