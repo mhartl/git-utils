@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+# Opens the last commit message for editing.
+system 'git commit --amend'

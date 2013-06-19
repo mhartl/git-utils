@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+# Deletes (almost) every branch already merged into current branch.
+# Exceptions are `master`, `staging`, and `development`, and the current
+# branch, which are preserved.
+preserved = "(master|staging|development)"
+cmd  = %(git branch --merged | grep -v "\*" | egrep -v "#{preserved}" | )
+cmd += 'xargs -n 1 git branch -d'
+system cmd

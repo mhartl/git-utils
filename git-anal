@@ -1,4 +1,0 @@
-#!/bin/sh
-
-# Makes anal changes.
-git commit -am "Make anal changes"

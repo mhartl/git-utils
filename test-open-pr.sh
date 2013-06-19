@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env ruby
 
 git init test-repo >/dev/null
 cd test-repo
@@ -7,13 +7,13 @@ touch foo
 git add foo
 git commit -m "foo" >/dev/null
 cat > open <<EOF
-#!/bin/sh
+#!/usr/bin/env ruby
 
 echo \$*
 EOF
 chmod +x open
 cat > git-push-branch <<EOF
-#!/bin/sh
+#!/usr/bin/env ruby
 EOF
 chmod +x git-push-branch
 export PATH=`pwd`:$PATH

@@ -1,4 +1,0 @@
-#!/bin/sh
-
-# Polish
-git commit -am "Polish"

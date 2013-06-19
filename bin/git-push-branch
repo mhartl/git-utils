@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'git-utils/push_branch'
+
+# Pushes the current branch to origin.
+exit Command.run!(PushBranch, ARGV.dup)
+
