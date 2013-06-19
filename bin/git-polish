@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+# Makes a commit with the message 'Polish'
+system 'git commit -am "Polish"'

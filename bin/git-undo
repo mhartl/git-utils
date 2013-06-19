@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+# Undoes the last commit and places the changes back in the staging area.
+system 'git reset --soft HEAD^''
