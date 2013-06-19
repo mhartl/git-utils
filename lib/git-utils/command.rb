@@ -23,7 +23,7 @@ class Command
 
   # Returns the current Git branch.
   def current_branch
-    `git rev-parse --abbrev-ref HEAD`.strip
+    @current_branch ||= `git rev-parse --abbrev-ref HEAD`.strip
   end
 
   # Returns the URL for the remote origin.
