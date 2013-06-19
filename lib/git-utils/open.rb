@@ -41,14 +41,22 @@ class Open < Command
 
   # Returns the URL for the repository page.
   def page_url
-
-    origin_url.sub(/https?\:\/\/(([^@]*)@)?(.*)\.git/,
-                   'https://\3/')
-    # origin_url.sub(/(.*)@([^:\/]*)(:?[^\/]*)\/(.*)scm\/([^\/]*)\/(.*)\.git/,
-    #                'https:\/\/\2\3\/\4projects\/\5\/repos\/\6\/browse\?at=' +
-    #                current_branch)
-    # 'https://bitbucket.org/atlassian/amps'
-
+    if service == 'stash' && protocol == 'ssh'
+      pattern = /(.*)@([^:]*):?([^\/]*)\/([^\/]*)\/(.*)\.git/
+      replacement = 'https://\2/projects/\4/repos/\5/browse?at=' +
+                    current_branch
+    elsif service == 'stash' && protocol == 'http'
+      pattern = /(.*)@([^:\/]*)(:?[^\/]*)\/(.*)scm\/([^\/]*)\/(.*)\.git/
+      replacement = 'https://\2\3/\4projects/\5/repos/\6/browse?at=' +
+                    current_branch
+    elsif protocol == 'ssh'
+      pattern = /(.*)@(.*):(.*)\.git/
+      replacement = 'https://\2/\3/'
+    elsif protocol == 'http'
+      pattern = /https?\:\/\/(([^@]*)@)?(.*)\.git/
+      replacement = 'https://\3/'
+    end
+    origin_url.sub(pattern, replacement)
   end
 
   # Returns a command appropriate for executing at the command line
