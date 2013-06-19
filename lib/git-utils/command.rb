@@ -21,7 +21,8 @@ class Command
     OptionParser.new
   end
 
-  def branch
+  # Returns the current Git branch.
+  def current_branch
     `git rev-parse --abbrev-ref HEAD`.strip
   end
 
@@ -35,7 +36,6 @@ class Command
       puts command.cmd
       return 1
     else
-      check_git_utils
       command.run!
       return 0
     end
