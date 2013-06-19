@@ -67,13 +67,4 @@ class Open < Command
     c << argument_string(unknown_options) unless unknown_options.empty?
     c.join("\n")
   end
-
-  private
-
-    # Returns the name of the branch to be merged into.
-    # If there is anything left in the known options after parsing,
-    # that's the merge branch. Otherwise, it's master.
-    def target_branch
-      self.known_options.first || 'master'
-    end
 end

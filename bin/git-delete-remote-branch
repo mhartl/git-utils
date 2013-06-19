@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'git-utils/delete_remote_branch'
+
+# Deletes the remote branch on origin if it is safe to do so.
+exit Command.run!(DeleteRemoteBranch, ARGV.dup)
