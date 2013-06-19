@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env ruby
 
 # Copyright (c) 2013 Michael Hartl
 # Copyright (c) 2013 Aleksandar Simic
