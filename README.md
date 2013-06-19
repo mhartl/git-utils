@@ -1,8 +1,12 @@
 # Git utilities
 
-This repo contains some Git utility scripts. The only dependency is Git. The highlights are `git open`, `git pull-request`, `git push-branch`, and `git undo`, which you'll never understand how you did without.
+This repo contains some Git utility scripts. The highlights are `git open`, `git pull-request`, `git push-branch`, and `git undo`, which you'll never understand how you did without.
 
 The commands are especially useful when combined with [git-utils](https://github.com/mhartl/git-utils) gem (which, despite its name, also works with Bitbucket).
+
+The `git-utils` used to be pure Bash scripts, but they are now available as a Ruby gem, both because Ruby is more powerful than bash and because now `git-utils` can be included more easilyt as a dependency for the [`pivotal-github`](https://github.com/mhartl/pivotal-github/) gem. As a result installation is easy if you have RubyGems installed:
+
+    $ gem install git-utils
 
 ## Commands
 
@@ -44,6 +48,10 @@ Note that this effectively changes the default merge behavior from fast-forward 
 
 In addition, the `--log` option puts the commit messages from the individual commits in the merge message, which is especially useful for viewing the full diff represented by the commit.
 
+These options can be overriden (and thus restored to their defaults) by passing the options `-ff` or `--no-log`.
+
+`git merge-branch` accepts any options valid for `git merge`.
+
 ### git push-branch
 
 `git push-branch` creates a remote branch at `origin` with the name of the current branch:
@@ -76,23 +84,4 @@ but I don't like having `master` and `origin/master` be different since that mea
 
 ## Installation
 
-To install the scripts, clone the repo or download a ZIP file and place the scripts somewhere on your path (e.g., in `~/bin` or `/usr/local/bin`). Here's one possible method using symlinks, assuming that `~/bin` exists and is on your path:
-
-    cd
-    mkdir repos
-    cd repos/
-    git clone https://github.com/mhartl/git-utils.git
-    cd ~/bin
-    ln -sf ~/repos/git-utils/git-* .
-
-Using this method, you can easily update your installation by pulling in the latest changes:
-
-    cd ~/repos/git-utils/
-    git pull
-
-To test the installation, try using one of the scripts, such as `git open`:
-
-    cd ~/repos/git-utils
-    git open
-
-If `git open` opens a browser window with this `README`, then the installation worked.
+    $ gem install git-utils
