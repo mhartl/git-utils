@@ -13,7 +13,7 @@ class Switch < Command
 
   # Returns the branch to switch to.
   def other_branch
-    `git branch | grep #{pattern}`.strip
+    @other_branch ||= `git branch | grep #{pattern}`.strip
   end
 
   # Returns a command appropriate for executing at the command line
@@ -22,6 +22,8 @@ class Switch < Command
     c << argument_string(unknown_options) unless unknown_options.empty?
     c.join("\n")
   end
+
+  private
 
     # Returns the pattern of the branch to switch to.
     def pattern
