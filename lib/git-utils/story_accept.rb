@@ -35,7 +35,7 @@ class StoryAccept < Command
         ids
       end
       commit_ids.each do |commit_id|
-        return delivered_ids if already_accepted?(commit_id) && !options['all']
+        return delivered_ids if already_accepted?(commit_id) && !options.all
         delivered_ids << commit_id
         delivered_ids.uniq!
       end
@@ -86,7 +86,7 @@ class StoryAccept < Command
   end
 
   def run!
-    if story_branch != 'master' && !options['override']
+    if story_branch != 'master' && !options.override
       puts "Runs only on the master branch by default"
       puts "Use --override to override"
       exit 1

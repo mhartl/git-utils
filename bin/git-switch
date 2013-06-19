@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'git-utils/switch'
+
+# Switches to the first branch matching the given pattern.
+# E.g., 'git switch foobar' switches to 'the-foobar-branch'.
+exit Command.run!(Switch, ARGV.dup)
