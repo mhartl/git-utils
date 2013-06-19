@@ -3,16 +3,20 @@ require 'spec_helper'
 describe Open do
 
   let(:command) { Open.new }
-  before { command.stub(:current_branch).and_return('tau-manifesto') }
+  before do
+    command.stub(:current_branch).and_return('tau-manifesto')
+    # command.stub(:origin_url).and_return(origin_url)
+  end
   subject { command }
 
   its(:cmd) { should match /git / }
 
   it "should foo" do
-    expected = %w[https://mwatson@bitbucket.org/atlassian/amps.git]
-    actual   = %w[https://bitbucket.org/atlassian/amps]
-    expected.zip(actual).each do |e, a|
-      expect(cmd(e)).to include a
+    origin_urls = %w[https://mwatson@bitbucket.org/atlassian/amps.git]
+    page_urls   = %w[https://bitbucket.org/atlassian/amps]
+    origin_urls.zip(page_urls).each do |origin_url, page_url|
+      command.stub(:origin_url).and_return(origin_url)
+      expect(command.page_url).to include page_url
     end
   end
 
