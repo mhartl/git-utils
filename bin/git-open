@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'git-utils/open'
+
+# Opens the remote page for the repo (OS X only).
+exit Command.run!(Open, ARGV.dup)
