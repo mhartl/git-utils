@@ -2,7 +2,7 @@
 
 This repo contains some Git utility scripts. The only dependency is Git. The highlights are `git open`, `git pull-request`, `git push-branch`, and `git undo`, which you'll never understand how you did without.
 
-The commands are especially useful when combined with [pivotal-github](https://github.com/mhartl/pivotal-github) gem (which, despite its name, also works with Bitbucket).
+The commands are especially useful when combined with [git-utils](https://github.com/mhartl/git-utils) gem (which, despite its name, also works with Bitbucket).
 
 ## Commands
 
