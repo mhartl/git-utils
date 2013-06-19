@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Switch do
 
-  let(:command) { Switch.new(['remote_branch']) }
+  let(:command) { Switch.new(['other-branch']) }
   before do
     command.stub(:current_branch).and_return('test-br')
     command.stub(:other_branch).and_return('other-branch')
