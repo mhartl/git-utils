@@ -11,36 +11,6 @@ class Open < Command
     end
   end
 
-  # Returns the URL for the remote origin.
-  def origin_url
-    @origin_url ||= `git config --get remote.origin.url`.strip
-  end
-
-  # Returns the name of the repository service.
-  # It's currently GitHub, Bitbucket, or Stash.
-  # We return blank for an unknown service; the command will still
-  # often work in that case.
-  def service
-    if origin_url =~ /github/i
-      'github'
-    elsif origin_url =~ /bitbucket/i
-      'bitbucket'
-    elsif origin_url =~ /stash/i
-      'stash'
-    else
-      ''
-    end
-  end
-
-  # Returns the protocol of the origin URL (defaults to ssh).
-  def protocol
-    if origin_url =~ /https?:\/\//
-      'http'
-    else
-      'ssh'
-    end
-  end
-
   # Returns the URL for the repository page.
   def page_url
     if service == 'stash' && protocol == 'ssh'

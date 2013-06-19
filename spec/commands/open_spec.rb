@@ -32,7 +32,6 @@ https://example.com/repos/foobar.git https://example.com/repos/foobar
 
   describe "command-line command" do
     subject { `bin/git-open --debug` }
-    it { should_not match /\.git/ }
-    it { should match /open #{command.page_url}/ }
+    it { should match /open/ }
   end
 end
