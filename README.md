@@ -16,7 +16,7 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 * `git merge-branch [branch]`: merges current branch into given branch (defaults to `master`)
 * `git open`: opens the remote page for the repo (OS X only)
 * `git polish`: makes a commit with the message "Polish"
-* `git pull-request`: opens the remote page for issuing a new a pull request (OS X only)
+* `git pull-request`: pushes the branch and opens the remote page for issuing a new a pull request (OS X only)
 * `git push-branch`: pushes the current branch up to origin
 * `git delete-remote-branch <branch>`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern

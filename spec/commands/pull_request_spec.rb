@@ -33,6 +33,7 @@ https://mwatson@stash.atlassian.com:7990/stash/scm/stash/stash.git https://stash
 
   describe "command-line command" do
     subject { `bin/git-pull-request --debug` }
+    it { should match /git push-branch/ }
     it { should match /open/ }
   end
 end
