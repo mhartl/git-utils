@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+# Bumps version number.
+system 'git commit -am "Bump version number"'
