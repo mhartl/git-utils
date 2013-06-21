@@ -16,7 +16,7 @@ class DeleteRemoteBranch < Command
 
   def delete_safely?
     command = "git log ..origin/#{target_branch} 2> /dev/null"
-    system(command) && !`#{command}`.strip.empty?
+    system(command) && `#{command}`.strip.empty?
   end
 
   # Returns a command appropriate for executing at the command line
