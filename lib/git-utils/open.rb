@@ -33,8 +33,6 @@ class Open < Command
 
   # Returns a command appropriate for executing at the command line
   def cmd
-    c = ["open #{page_url}"]
-    c << argument_string(unknown_options) unless unknown_options.empty?
-    c.join("\n")
+    "open #{page_url}"
   end
 end

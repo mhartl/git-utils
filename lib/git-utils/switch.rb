@@ -18,9 +18,7 @@ class Switch < Command
 
   # Returns a command appropriate for executing at the command line
   def cmd
-    c = ["git checkout #{other_branch}"]
-    c << argument_string(unknown_options) unless unknown_options.empty?
-    c.join("\n")
+    "git checkout #{other_branch}"
   end
 
   private
@@ -29,5 +27,4 @@ class Switch < Command
     def pattern
       self.known_options.first
     end
-
 end

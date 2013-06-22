@@ -16,7 +16,6 @@ class Sync < Command
     c = ["git checkout master"]
     c << "git pull"
     c << "git checkout #{current_branch}"
-    c << argument_string(unknown_options) unless unknown_options.empty?
     c.join("\n")
   end
 end
