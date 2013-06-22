@@ -43,6 +43,6 @@ class PullRequest < Command
     push += argument_string(unknown_options) unless unknown_options.empty?
     push = push.join(" ")
     c = [push, "open #{new_pr_url}"]
-    c.join(" ")
+    c.join("\n")
   end
 end
