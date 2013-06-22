@@ -13,8 +13,8 @@ class PushBranch < Command
 
   # Returns a command appropriate for executing at the command line
   def cmd
-    c = ["git push origin #{current_branch}"]
-    c << argument_string(unknown_options) unless unknown_options.empty?
-    c.join("\n")
+    c  = ["git push origin #{current_branch}"]
+    c += argument_string(unknown_options) unless unknown_options.empty?
+    c.join(" ")
   end
 end

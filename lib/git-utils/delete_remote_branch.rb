@@ -22,9 +22,9 @@ class DeleteRemoteBranch < Command
   # Returns a command appropriate for executing at the command line
   def cmd
     if delete_safely? || options.override
-      c = ["git push origin :#{target_branch}"]
+      c  = ["git push origin :#{target_branch}"]
       c << argument_string(unknown_options) unless unknown_options.empty?
-      c.join("\n")
+      c.join(" ")
     else
       $stderr.puts "Target branch contains unmerged commits."
       $stderr.puts "Please cherry-pick the commits or merge the branch again."

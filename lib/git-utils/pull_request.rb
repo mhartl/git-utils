@@ -39,9 +39,10 @@ class PullRequest < Command
 
   # Returns a command appropriate for executing at the command line
   def cmd
-    c =  ["git push-branch"]
-    c << ["open #{new_pr_url}"]
-    c << argument_string(unknown_options) unless unknown_options.empty?
-    c.join("\n")
+    push  = ["git push-branch"]
+    push += argument_string(unknown_options) unless unknown_options.empty?
+    push = push.join(" ")
+    c = [push, "open #{new_pr_url}"]
+    c.join(" ")
   end
 end
