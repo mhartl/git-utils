@@ -23,10 +23,10 @@ class Open < Command
                     current_branch
     elsif protocol == 'ssh'
       pattern = /(.*)@(.*):(.*)\.git/
-      replacement = 'https://\2/\3/'
+      replacement = 'https://\2/\3'
     elsif protocol == 'http'
       pattern = /https?\:\/\/(([^@]*)@)?(.*)\.git/
-      replacement = 'https://\3/'
+      replacement = 'https://\3'
     end
     origin_url.sub(pattern, replacement)
   end
