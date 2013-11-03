@@ -8,10 +8,12 @@ describe PushBranch do
   end
   subject { command }
 
-  its(:cmd) { should match /git push origin #{command.current_branch}/ }
+  its(:cmd) do
+    should match /git push --set-upstream origin #{command.current_branch}/
+  end
 
   describe "command-line command" do
     subject { `bin/git-push-branch --debug` }
-    it { should match /git push origin/ }
+    it { should match /git push --set-upstream origin/ }
   end
 end
