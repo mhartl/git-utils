@@ -12,7 +12,7 @@ describe Switch do
   its(:cmd) { should match /git checkout #{command.other_branch}/ }
 
   describe "command-line command" do
-    subject { `bin/git-push-branch --debug` }
-    it { should match /git push origin/ }
+    subject { `bin/git-switch example --debug` }
+    it { should match /git checkout/ }
   end
 end
