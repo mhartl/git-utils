@@ -69,15 +69,15 @@ These options can be overriden (and thus restored to their defaults) by passing 
     $ git pull
     $ git checkout add-markdown-support
 
-The purpose of `git sync` is to prepare the current branch for rebasing against `master`:
+The main purpose of `git sync` is to prepare the current branch for merging with `master`:
 
     $ git sync
-    $ git rebase master
+    $ git merge master
 
 (This is essentially equivalent to
 
     $ git fetch
-    $ git rebase origin/master
+    $ git merge origin/master
 
 but I don't like having `master` and `origin/master` be different since that means you have to remember to run `git pull` on `master` some time down the line.)
 
