@@ -12,8 +12,9 @@ class Switch < Command
   end
 
   # Returns the branch to switch to.
+  # When multiple branches match, switch to the first one.
   def other_branch
-    @other_branch ||= `git branch | grep #{pattern}`.strip
+    @other_branch ||= `git branch | grep #{pattern}`.split.first
   end
 
   # Returns a command appropriate for executing at the command line
