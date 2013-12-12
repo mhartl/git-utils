@@ -31,8 +31,31 @@ class Open < Command
     origin_url.sub(pattern, replacement)
   end
 
-  # Returns a command appropriate for executing at the command line
+  # Returns a command appropriate for executing at the command line.
   def cmd
-    "open #{page_url}"
+    "#{open} #{page_url}"
   end
+
+  private
+
+    # Returns the system-dependent `open` command.
+    def open
+      if os_x?
+        'open'
+      elsif linux?
+        'xdg-open'
+      else
+        raise "Platform #{RUBY_PLATFORM} not supported"
+      end
+    end
+
+    # Returns true if platform is OS X.
+    def os_x?
+      RUBY_PLATFORM.match(/darwin/)
+    end
+
+    # Returns true if platform is Linux.
+    def linux?
+      RUBY_PLATFORM.match(/linux/)
+    end
 end

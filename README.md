@@ -15,7 +15,7 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 * `git bump`: makes a commit with the message "Bump version number"
 * `git cleanup`: deletes every branch already merged into current branch (apart from `master`, `staging`, `development`, and any branches listed in `~/.git-cleanup-preserved`)
 * `git merge-branch [branch]`: merges current branch into given branch (defaults to `master`)
-* `git open`: opens the remote page for the repo (OS X only)
+* `git open`: opens the remote page for the repo (OS X & Linux)
 * `git polish`: makes a commit with the message "Polish"
 * `git pull-request`: pushes the branch and opens the remote page for issuing a new a pull request (OS X only)
 * `git push-branch`: pushes the current branch up to origin
