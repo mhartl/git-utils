@@ -13,7 +13,7 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 * `git amend`: alias for `git commit --amend`
 * `git anal` (*use with caution*): makes a commit with the message "Make anal changes"
 * `git bump`: makes a commit with the message "Bump version number"
-* `git cleanup`: deletes every branch already merged into current branch (apart from `master`, `staging`, `development`, and any branches listed in `~/.git-cleanup-preserved`)
+* `git cleanup`: deletes every branch already merged into current branch (apart from `master`, `staging`, `development`, and any branches listed in `~/.git-cleanup-preserved`). Pass the `-r` option to delete remote merged branches.
 * `git merge-branch [branch]`: merges current branch into given branch (defaults to `master`)
 * `git open`: opens the remote page for the repo (OS X & Linux)
 * `git polish`: makes a commit with the message "Polish"
