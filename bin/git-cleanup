@@ -1,9 +1,20 @@
 #!/usr/bin/env ruby
+require 'optparse'
 
 # Deletes (almost) every branch already merged into current branch.
 # Exceptions are `master`, `staging`, and `development`, and the current
 # branch, which are preserved. We also support custom configuration via the
 # `~/.git-cleanup-preserved` file.
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: yoga [options]"
+
+  opts.on("-r", "Clean up remote branches") do
+    options[:remote] = true
+  end
+end.parse!
+
 preserved = "master|staging|development"
 preserved_file = File.join(Dir.home, '.git-cleanup-preserved')
 if File.exist?(preserved_file)
@@ -13,5 +24,10 @@ if File.exist?(preserved_file)
   end
 end
 cmd  = %(git branch --merged | grep -v "\*" | egrep -v "(#{preserved})" | )
-cmd += 'xargs -n 1 git branch -d'
+if options[:remote]
+  cmd += "sed -e 's/origin\\//:/' | xargs git push origin"
+  cmd.sub!('git branch', 'git branch -r')
+else
+  cmd += 'xargs -n 1 git branch -d'
+end
 system cmd
