@@ -5,6 +5,9 @@ class Open < Command
   def parser
     OptionParser.new do |opts|
       opts.banner = "Usage: git open"
+      opts.on("-p", "--print", "print URL instead of opening") do |opt|
+        self.options.print = opt
+      end
       opts.on_tail("-h", "--help", "this usage guide") do
         puts opts.to_s; exit 0
       end
@@ -33,7 +36,12 @@ class Open < Command
 
   # Returns a command appropriate for executing at the command line.
   def cmd
-    "#{open} #{page_url}"
+    if options[:print]
+      puts page_url
+      ""
+    else
+      "#{open} #{page_url}"
+    end
   end
 
   private
