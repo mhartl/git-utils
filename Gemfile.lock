@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    git-utils (0.5.10)
+    git-utils (0.6.2)
 
 GEM
   remote: https://rubygems.org/

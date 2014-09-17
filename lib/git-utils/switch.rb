@@ -17,7 +17,7 @@ class Switch < Command
     @other_branch ||= `git branch | grep #{pattern}`.split.first
   end
 
-  # Returns a command appropriate for executing at the command line
+  # Returns a command appropriate for executing at the command line.
   def cmd
     "git checkout #{other_branch}"
   end

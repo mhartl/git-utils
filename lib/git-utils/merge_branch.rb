@@ -11,7 +11,7 @@ class MergeBranch < Command
     end
   end
 
-  # Returns a command appropriate for executing at the command line
+  # Returns a command appropriate for executing at the command line.
   # For example:
   #   git checkout master
   #   git merge --no-ff --log <branch>

@@ -19,7 +19,7 @@ class DeleteRemoteBranch < Command
     system(command) && `#{command}`.strip.empty?
   end
 
-  # Returns a command appropriate for executing at the command line
+  # Returns a command appropriate for executing at the command line.
   def cmd
     if delete_safely? || options.override
       c  = ["git push origin :#{target_branch}"]
