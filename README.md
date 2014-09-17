@@ -21,7 +21,7 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 * `git push-branch`: pushes the current branch up to origin
 * `git delete-remote-branch <branch>`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern
-* `git sync`: syncs the local master with remote
+* `git sync [branch]`: syncs the given branch with the remote branch (defaults to master)
 * `git undo`: undoes the last commit
 
 ## Aliases
@@ -63,7 +63,7 @@ These options can be overriden (and thus restored to their defaults) by passing 
 
 ### git sync
 
-`git sync` syncs the local `master` with the remote `master`. On a branch called `add-markdown-support`, `git sync` is equivalent to the following:
+`git sync [branch]` syncs the given local branch  with the remote branch (defaults to master). On a branch called `add-markdown-support`, `git sync` is equivalent to the following:
 
     $ git checkout master
     $ git pull
