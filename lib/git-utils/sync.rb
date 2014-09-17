@@ -4,10 +4,7 @@ class Sync < Command
 
   def parser
     OptionParser.new do |opts|
-      opts.banner = "Usage: git sync"
-      opts.on("-b", "--branch", "sync with given branch") do |opt|
-        self.options.branch = opt
-      end
+      opts.banner = "Usage: git sync [branch]"
       opts.on_tail("-h", "--help", "this usage guide") do
         puts opts.to_s; exit 0
       end
@@ -16,7 +13,7 @@ class Sync < Command
 
   # Returns a command appropriate for executing at the command line.
   def cmd
-    branch = options[:branch] || 'master'
+    branch = self.known_options.first || 'master'
     c = ["git checkout #{branch}"]
     c << "git pull"
     c << "git checkout #{current_branch}"

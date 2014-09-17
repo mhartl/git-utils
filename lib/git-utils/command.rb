@@ -31,8 +31,6 @@ class Command
     @origin_url ||= `git config --get remote.origin.url`.strip
   end
 
-
-
   # Returns the name of the repository service.
   # It's currently GitHub, Bitbucket, or Stash.
   # We return blank for an unknown service; the command will still
