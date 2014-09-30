@@ -8,7 +8,7 @@ require 'optparse'
 
 options = {}
 OptionParser.new do |opts|
-  opts.banner = "Usage: yoga [options]"
+  opts.banner = "Usage: git cleanup [options]"
 
   opts.on("-r", "Clean up remote branches") do
     options[:remote] = true
