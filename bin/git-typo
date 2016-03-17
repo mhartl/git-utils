@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 
 # Makes anal changes.
-system 'git commit -am "Make anal changes"'
+system 'git commit -am "Fix typo"'
