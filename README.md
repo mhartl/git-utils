@@ -22,6 +22,7 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 * `git delete-remote-branch <branch>`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern
 * `git sync [branch]`: syncs the given branch with the remote branch (defaults to master)
+* `git typo`: makes a commit with the message "Fix typo"
 * `git undo`: undoes the last commit
 
 ## Aliases
