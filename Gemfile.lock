@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    git-utils (0.6.5)
+    git-utils (0.6.6)
 
 GEM
   remote: https://rubygems.org/
@@ -22,3 +22,6 @@ PLATFORMS
 DEPENDENCIES
   git-utils!
   rspec (~> 2.13.0)
+
+BUNDLED WITH
+   1.13.6
