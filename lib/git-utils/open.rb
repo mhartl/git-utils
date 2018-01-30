@@ -34,7 +34,7 @@ class Open < Command
     origin_url.sub(pattern, replacement)
   end
 
-  # Returns a command appropriate for executing at the command line..
+  # Returns a command appropriate for executing at the command line.
   def cmd
     if options[:print]
       puts page_url
