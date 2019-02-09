@@ -56,7 +56,7 @@ These options can be overriden (and thus restored to their defaults) by passing 
 
 `git push-branch` creates a remote branch at `origin` with the name of the current branch:
 
-    $ git branch-push
+    $ git push-branch
     * [new branch]      add-markdown-support -> add-markdown-support
 
 `git push-branch` accepts any options valid for `git push`.
