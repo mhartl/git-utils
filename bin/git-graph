@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+# Displays full repository history in graphical format
+system 'git log --graph --oneline --decorate --all --full-history --author-date-order --no-notes'
