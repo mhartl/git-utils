@@ -24,6 +24,7 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 * `git sync [branch]`: syncs the given branch with the remote branch (defaults to master)
 * `git typo`: makes a commit with the message "Fix typo"
 * `git undo`: undoes the last commit
+* `git graph`: displays full repository history in graphical format; alias for `git log --graph --oneline --decorate --all --full-history --author-date-order --no-notes`
 
 ## Aliases
 
