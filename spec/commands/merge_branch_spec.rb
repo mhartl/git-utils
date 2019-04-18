@@ -8,7 +8,7 @@ describe MergeBranch do
 
   its(:cmd) { should match /git merge/ }
 
-  shared_examples "merge-branch with known options" do
+  shared_examples "merge-into-branch with known options" do
     subject { command }
     it "should not raise an error" do
       expect { command.parse }.not_to raise_error(OptionParser::InvalidOption)
@@ -26,12 +26,12 @@ describe MergeBranch do
 
   describe "with some unknown options" do
     let(:command) { MergeBranch.new(['dev', '-o', '-a', '-z', '--foo']) }
-    it_should_behave_like "merge-branch with known options"
+    it_should_behave_like "merge-into-branch with known options"
     its(:cmd) { should match /-a -z --foo/ }
   end
 
   describe "command-line command" do
-    subject { `bin/git-merge-branch --debug development` }
+    subject { `bin/git-merge-into-branch --debug development` }
     it { should match /git checkout development/ }
     it { should match /git merge --no-ff --log/ }
   end

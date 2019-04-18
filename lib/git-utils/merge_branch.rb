@@ -4,7 +4,7 @@ class MergeBranch < Command
 
   def parser
     OptionParser.new do |opts|
-      opts.banner = "Usage: git merge-branch [branch] [options]"
+      opts.banner = "Usage: git merge-into-branch [branch] [options]"
       opts.on_tail("-h", "--help", "this usage guide") do
         puts opts.to_s; exit 0
       end

@@ -13,7 +13,7 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 * `git amend`: alias for `git commit --amend`
 * `git bump`: makes a commit with the message "Bump version number"
 * `git cleanup`: deletes every branch already merged into current branch (apart from `master`, `staging`, `development`, and any branches listed in `~/.git-cleanup-preserved`). Pass the `-r` option to delete remote merged branches.
-* `git merge-branch [branch]`: merges current branch into given branch (defaults to `master`)
+* `git merge-into-branch [branch]`: merges current branch into given branch (defaults to `master`)
 * `git minor`: makes a commit with the message "Make minor changes"
 * `git open`: opens the remote page for the repo (OS X & Linux)
 * `git polish`: makes a commit with the message "Polish"
@@ -30,17 +30,17 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 
 Here are some suggested aliases:
 
-    git config --global alias.mb merge-branch
-    git config --global alias.pr pull-request
-    git config --global alias.pb push-branch
+    git config --global alias.mib merge-into-branch
+    git config --global alias.pr  pull-request
+    git config --global alias.pb  push-branch
 
 ## Further details
 
 Some of these commands deserve further explanation.
 
-### git merge-branch
+### git merge-into-branch
 
-`git merge-branch [target]` merges the current branch into the target branch (defaults to `master`). On a branch called `add-markdown-support`, `git merge-branch` is equivalent to the following:
+`git merge-into-branch [target]` merges the current branch into the target branch (defaults to `master`). On a branch called `add-markdown-support`, `git merge-into-branch` is equivalent to the following:
 
     $ git checkout master
     $ git merge --no-ff --log add-markdown-support
@@ -51,7 +51,7 @@ Note that this effectively changes the default merge behavior from fast-forward 
 
 In addition, the `--log` option puts the commit messages from the individual commits in the merge message, which is especially useful for viewing the full diff represented by the commit.
 
-These options can be overriden (and thus restored to their defaults) by passing the options `-ff` or `--no-log`. `git merge-branch` accepts any options valid for `git merge`.
+These options can be overriden (and thus restored to their defaults) by passing the options `-ff` or `--no-log`. `git merge-into-branch` accepts any options valid for `git merge`.
 
 ### git push-branch
 

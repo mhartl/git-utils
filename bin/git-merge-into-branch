@@ -3,9 +3,9 @@ $LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
 require 'git-utils/merge_branch'
 
 # Merges the current branch into the given branch (defaults to master).
-# E.g., 'git merge-branch foobar' merges the current branch into foobar.
-# 'git merge-branch', merges the current branch into master.
-# git merge-branch uses the --no-ff --log options to ensure that the
+# E.g., 'git merge-into-branch foobar' merges the current branch into foobar.
+# 'git merge-into-branch', merges the current branch into master.
+# git merge-into-branch uses the --no-ff --log options to ensure that the
 # merge creates a new commit object and that the individual commits appear
 # in the log file.
 exit Command.run!(MergeBranch, ARGV.dup)
