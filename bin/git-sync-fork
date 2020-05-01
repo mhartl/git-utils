@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), '..', 'lib')
+require 'git-utils/sync_fork'
+
+# Syncs the local master branch with remote.
+exit Command.run!(SyncFork, ARGV.dup)

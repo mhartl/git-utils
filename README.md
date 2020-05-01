@@ -1,6 +1,6 @@
 # Git utilities
 
-This repo contains some Git utility scripts. The highlights are `git open`, `git pull-request`, `git push-branch`, and `git undo`, which you'll never understand how you did without.
+This repo contains some Git utility scripts. The highlights are `git open`, `git pull-request`, `git push-branch`, and `git undo`, which you’ll never understand how you did without.
 
 The commands are especially useful when combined with [pivotal-github](https://github.com/mhartl/pivotal-github) gem (which, despite its name, also works with Bitbucket).
 
@@ -11,18 +11,19 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 ## Commands
 
 * `git amend`: alias for `git commit --amend`
-* `git bump`: makes a commit with the message "Bump version number"
+* `git bump`: makes a commit with the message `"Bump version number"`
 * `git cleanup`: deletes every branch already merged into current branch (apart from `master`, `staging`, `development`, and any branches listed in `~/.git-cleanup-preserved`). Pass the `-r` option to delete remote merged branches.
 * `git merge-into-branch [branch]`: merges current branch into given branch (defaults to `master`)
-* `git minor`: makes a commit with the message "Make minor changes"
+* `git minor`: makes a commit with the message `"Make minor changes"`
 * `git open`: opens the remote page for the repo (OS X & Linux)
-* `git polish`: makes a commit with the message "Polish"
+* `git polish`: makes a commit with the message `"Polish"`
 * `git pull-request`: pushes the branch and opens the remote page for issuing a new a pull request (OS X only)
 * `git push-branch`: pushes the current branch up to origin
 * `git delete-remote-branch <branch>`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern
 * `git sync [branch]`: syncs the given branch with the remote branch (defaults to master)
-* `git typo`: makes a commit with the message "Fix typo"
+* `git sync-fork`: syncs the `master` branch of a fork with the original upstream `master` (assumes upstream configuration as in “[Configuring a remote for a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)”)
+* `git typo`: makes a commit with the message `"Fix typo"`
 * `git undo`: undoes the last commit
 * `git graph`: displays full repository history in graphical format; alias for `git log --graph --oneline --decorate --all --full-history --author-date-order --no-notes`
 
@@ -81,7 +82,7 @@ The main purpose of `git sync` is to prepare the current branch for merging with
     $ git fetch
     $ git merge origin/master
 
-but I don't like having `master` and `origin/master` be different since that means you have to remember to run `git pull` on `master` some time down the line.)
+but I don’t like having `master` and `origin/master` be different since that means you have to remember to run `git pull` on `master` some time down the line.)
 
 ## Installation
 
