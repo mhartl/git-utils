@@ -15,9 +15,9 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 * `git cleanup`: deletes every branch already merged into current branch (apart from `master`, `staging`, `development`, and any branches listed in `~/.git-cleanup-preserved`). Pass the `-r` option to delete remote merged branches.
 * `git merge-into-branch [branch]`: merges current branch into given branch (defaults to `master`)
 * `git minor`: makes a commit with the message `"Make minor changes"`
-* `git open`: opens the remote page for the repo (OS X & Linux)
+* `git open`: opens the remote page for the repo (macOS & Linux)
 * `git polish`: makes a commit with the message `"Polish"`
-* `git pull-request`: pushes the branch and opens the remote page for issuing a new a pull request (OS X only)
+* `git pull-request`: pushes the branch and opens the remote page for issuing a new a pull request (macOS-only)
 * `git push-branch`: pushes the current branch up to origin
 * `git delete-remote-branch <branch>`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern
