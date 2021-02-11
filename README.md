@@ -2,11 +2,11 @@
 
 This repo contains some Git utility scripts. The highlights are `git open`, `git pull-request`, `git push-branch`, and `git undo`, which you’ll never understand how you did without.
 
-`git-utils` used to be pure Bash scripts, but they are now available as a Ruby gem, both because Ruby is more powerful than bash and because now `git-utils` can be included more easily as a dependency for the [pivotal-github](https://github.com/mhartl/pivotal-github/) gem. As a result, installation is easy if you have RubyGems installed:
+`git-utils` used to be pure Bash scripts, but they are now available as a Ruby gem:
 
     gem install git-utils
 
-To learn more about how to use Git itself, see the tutorial book and online course [*Learn Enough Git to Be Dangerous*](https://www.learnenough.com/git).
+See below for more details on the commands defined by `git-utils`. To learn more about how to use Git itself, see the tutorial book and online course [*Learn Enough Git to Be Dangerous*](https://www.learnenough.com/git).
 
 ## Commands
 
