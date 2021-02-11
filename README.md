@@ -8,6 +8,8 @@ The `git-utils` used to be pure Bash scripts, but they are now available as a Ru
 
     gem install git-utils
 
+To learn more about how to use Git itself, see the tutorial book and online course [*Learn Enough Git to Be Dangerous*](https://www.learnenough.com/git).
+
 ## Commands
 
 * `git amend`: alias for `git commit --amend`
