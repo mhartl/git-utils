@@ -26,6 +26,12 @@ class Command
     @current_branch ||= `git rev-parse --abbrev-ref HEAD`.strip
   end
 
+  # Returns the default branch for the current repository.
+  def default_branch
+    @default_branch ||= `git symbolic-ref refs/remotes/origin/HEAD \
+     | sed 's@^refs/remotes/origin/@@'`.strip
+  end
+
   # Returns the URL for the remote origin.
   def origin_url
     @origin_url ||= `git config --get remote.origin.url`.strip

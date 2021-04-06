@@ -4,7 +4,7 @@ class SyncFork < Command
 
   def parser
     OptionParser.new do |opts|
-      opts.banner = "Usage: git sync-fork"
+      opts.banner = "Usage: git sync-fork [default]"
       opts.on_tail("-h", "--help", "this usage guide") do
         puts opts.to_s; exit 0
       end
@@ -13,9 +13,9 @@ class SyncFork < Command
 
   # Returns a command appropriate for executing at the command line.
   def cmd
-    c = ["git checkout master"]
+    c = ["git checkout #{default_branch}"]
     c << "git fetch upstream"
-    c << "git merge upstream/master"
+    c << "git merge upstream/#{default_branch}"
     c.join("\n")
   end
 end

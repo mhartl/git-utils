@@ -12,8 +12,8 @@ See below for more details on the commands defined by `git-utils`. To learn more
 
 * `git amend`: alias for `git commit --amend`
 * `git bump`: makes a commit with the message `"Bump version number"`
-* `git cleanup`: deletes every branch already merged into current branch (apart from `master`, `staging`, `development`, and any branches listed in `~/.git-cleanup-preserved`). Pass the `-r` option to delete remote merged branches.
-* `git merge-into-branch [branch]`: merges current branch into given branch (defaults to `master`)
+* `git cleanup`: deletes every branch already merged into current branch (apart from `master`, `main`, `staging`, `development`, and any branches listed in `~/.git-cleanup-preserved`). Pass the `-r` option to delete remote merged branches.
+* `git merge-into-branch [branch]`: merges current branch into given branch (defaults to repo's default branch)
 * `git minor`: makes a commit with the message `"Make minor changes"`
 * `git open`: opens the remote page for the repo (macOS & Linux)
 * `git polish`: makes a commit with the message `"Polish"`
@@ -21,8 +21,8 @@ See below for more details on the commands defined by `git-utils`. To learn more
 * `git push-branch`: pushes the current branch up to origin
 * `git delete-remote-branch <branch>`: deletes the remote branch if it is safe to do so
 * `git switch <pattern>`: switches to the first branch matching the given pattern
-* `git sync [branch]`: syncs the given branch with the remote branch (defaults to master)
-* `git sync-fork`: syncs the `master` branch of a fork with the original upstream `master` (assumes upstream configuration as in “[Configuring a remote for a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)”)
+* `git sync [branch]`: syncs the given branch with the remote branch (defaults to repo's default branch)
+* `git sync-fork`: syncs the default branch of a fork with the original upstream default (assumes upstream configuration as in “[Configuring a remote for a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)”)
 * `git typo`: makes a commit with the message `"Fix typo"`
 * `git undo`: undoes the last commit
 * `git graph`: displays full repository history in graphical format; alias for `git log --graph --oneline --decorate --all --full-history --author-date-order --no-notes`
@@ -41,9 +41,9 @@ Some of these commands deserve further explanation.
 
 ### git merge-into-branch
 
-`git merge-into-branch [target]` merges the current branch into the target branch (defaults to `master`). On a branch called `add-markdown-support`, `git merge-into-branch` is equivalent to the following:
+`git merge-into-branch [target]` merges the current branch into the target branch (defaults to repo's default branch). On a branch called `add-markdown-support` in a repo with default branch `main`, `git merge-into-branch` is equivalent to the following:
 
-    $ git checkout master
+    $ git checkout main
     $ git merge --no-ff --log add-markdown-support
 
 Note that this effectively changes the default merge behavior from fast-forward to no-fast-forward, which makes it possible to use `git log` to see which of the commit objects together have implemented a feature on a particular branch. As noted in [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/):
@@ -66,16 +66,16 @@ These options can be overriden (and thus restored to their defaults) by passing 
 
 ### git sync
 
-`git sync [branch]` syncs the given local branch  with the remote branch (defaults to master). On a branch called `add-markdown-support`, `git sync` is equivalent to the following:
+`git sync [branch]` syncs the given local branch  with the remote branch (defaults to repo's default branch). On a branch called `add-markdown-support` in a repo with default branch `master`, `git sync` is equivalent to the following:
 
     $ git checkout master
     $ git pull
     $ git checkout add-markdown-support
 
-The main purpose of `git sync` is to prepare the current branch for merging with `master`:
+The main purpose of `git sync` is to prepare the current branch for merging with the default branch:
 
     $ git sync
-    $ git merge master
+    $ git merge master    # or `main`, etc.
 
 (This is essentially equivalent to
 

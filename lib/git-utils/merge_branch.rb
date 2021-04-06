@@ -28,8 +28,8 @@ class MergeBranch < Command
 
     # Returns the name of the branch to be merged into.
     # If there is anything left in the known options after parsing,
-    # that's the merge branch. Otherwise, it's master.
+    # that's the merge branch. Otherwise, it's the default branch.
     def target_branch
-      self.known_options.first || 'master'
+      self.known_options.first || default_branch
     end
 end

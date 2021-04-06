@@ -13,7 +13,7 @@ class Sync < Command
 
   # Returns a command appropriate for executing at the command line.
   def cmd
-    branch = self.known_options.first || 'master'
+    branch = self.known_options.first || default_branch
     c = ["git checkout #{branch}"]
     c << "git pull"
     c << "git checkout #{current_branch}"

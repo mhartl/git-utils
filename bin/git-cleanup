@@ -2,9 +2,9 @@
 require 'optparse'
 
 # Deletes (almost) every branch already merged into current branch.
-# Exceptions are `master`, `staging`, and `development`, and the current
-# branch, which are preserved. We also support custom configuration via the
-# `~/.git-cleanup-preserved` file.
+# Exceptions are `master`, `main`, `staging`, and `development`,
+# and the current branch, which are preserved.
+# We also support custom configuration via the `~/.git-cleanup-preserved` file.
 
 options = {}
 OptionParser.new do |opts|
@@ -15,7 +15,7 @@ OptionParser.new do |opts|
   end
 end.parse!
 
-preserved = "master|staging|development"
+preserved = "master|main|staging|development"
 preserved_file = File.join(Dir.home, '.git-cleanup-preserved')
 if File.exist?(preserved_file)
   additional_preserved = File.read(preserved_file).strip.split("\n")
