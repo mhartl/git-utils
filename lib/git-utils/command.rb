@@ -27,9 +27,11 @@ class Command
   end
 
   # Returns the default branch for the current repository.
+  # Command retrieved from
+  # https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
   def default_branch
-    @default_branch ||= `git symbolic-ref refs/remotes/origin/HEAD \
-     | sed 's@^refs/remotes/origin/@@'`.strip
+    @default_branch ||= `git symbolic-ref --short refs/remotes/origin/HEAD \
+                         | sed 's@^origin/@@'`.strip
   end
 
   # Returns the URL for the remote origin.
