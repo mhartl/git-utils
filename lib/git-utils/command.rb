@@ -30,8 +30,19 @@ class Command
   # Command retrieved from
   # https://stackoverflow.com/questions/28666357/git-how-to-get-default-branch
   def default_branch
-    @default_branch ||= `git symbolic-ref --short refs/remotes/origin/HEAD \
-                         | sed 's@^origin/@@'`.strip
+    branch_name = `git symbolic-ref --short refs/remotes/origin/HEAD \
+                   | sed 's@^origin/@@'`.strip
+    if branch_name.empty?
+      $stderr.puts "Repository configuration error"
+      $stderr.puts "Missing reference to refs/remotes/origin/HEAD"
+      $stderr.puts "Run"
+      $stderr.puts "  $ git remote set-head origin <default branch>`"
+      $stderr.puts "where <default branch> is the default branch name"
+      $stderr.puts "(typically `main`, `master`, or `trunk`)"
+      $stderr.puts "and then rerun the command"
+      exit(1)
+    end
+    @default_branch ||= branch_name
   end
 
   # Returns the URL for the remote origin.
