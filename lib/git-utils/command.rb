@@ -36,7 +36,9 @@ class Command
       $stderr.puts "Repository configuration error"
       $stderr.puts "Missing reference to refs/remotes/origin/HEAD"
       $stderr.puts "Run"
-      $stderr.puts "  $ git remote set-head origin <default branch>`"
+      $stderr.puts
+      $stderr.puts "  git remote set-head origin <default branch>"
+      $stderr.puts
       $stderr.puts "where <default branch> is the default branch name"
       $stderr.puts "(typically `main`, `master`, or `trunk`)"
       $stderr.puts "and then rerun the command"
