@@ -23,7 +23,7 @@ if File.exist?(preserved_file)
     preserved += '|' + additional_preserved.join('|')
   end
 end
-cmd  = %(git branch --merged | grep -v "\*" | egrep -v "(#{preserved})" | )
+cmd  = %(git branch --merged | grep -v "\*" | egrep -v "(#{preserved}|HEAD)" | )
 if options[:remote]
   cmd += "sed -e 's/origin\\//:/' | xargs git push origin"
   cmd.sub!('git branch', 'git branch -r')
