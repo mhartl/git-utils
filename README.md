@@ -8,6 +8,10 @@ This repo contains some Git utility scripts. The highlights are `git open`, `git
 
 See below for more details on the commands defined by `git-utils`. To learn more about how to use Git itself, see the tutorial book and online course [*Learn Enough Git to Be Dangerous*](https://www.learnenough.com/git).
 
+## Installation
+
+    gem install git-utils
+
 ## Commands
 
 * `git amend`: alias for `git commit --amend`
@@ -83,7 +87,3 @@ The main purpose of `git sync` is to prepare the current branch for merging with
     $ git merge origin/master
 
 but I don’t like having `master` and `origin/master` be different since that means you have to remember to run `git pull` on `master` some time down the line.)
-
-## Installation
-
-    gem install git-utils
