@@ -17,6 +17,7 @@ See below for more details on the commands defined by `git-utils`. To learn more
 * `git amend`: alias for `git commit --amend`
 * `git bump`: makes a commit with the message `"Bump version number"`
 * `git cleanup`: deletes every branch already merged into current branch (apart from `master`, `main`, `staging`, `development`, and any branches listed in `~/.git-cleanup-preserved`). Pass the `-r` option to delete remote merged branches.
+* `git files-changed`: alias for `git log --name-only`, showing only the commit message and which files changed (no diffs).
 * `git merge-into-branch [branch]`: merges current branch into given branch (defaults to repo's default branch)
 * `git minor`: makes a commit with the message `"Make minor changes"`
 * `git open`: opens the remote page for the repo (macOS & Linux)

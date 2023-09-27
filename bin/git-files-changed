@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+# See which files changed.
+system 'git log --name-only'
