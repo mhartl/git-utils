@@ -29,6 +29,7 @@ See below for more details on the commands defined by `git-utils`. To learn more
 * `git sync [branch]`: syncs the given branch with the remote branch (defaults to repo's default branch)
 * `git sync-fork`: syncs the default branch of a fork with the original upstream default (assumes upstream configuration as in “[Configuring a remote for a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)”)
 * `git typo`: makes a commit with the message `"Fix typo"`
+* `git typos`: makes a commit with the message `"Fix typos"`
 * `git undo`: undoes the last commit
 * `git graph`: displays full repository history in graphical format; alias for `git log --graph --oneline --decorate --all --full-history --author-date-order --no-notes`
 

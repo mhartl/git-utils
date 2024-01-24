@@ -1,4 +1,3 @@
 #!/usr/bin/env ruby
 
-# Makes minor changes.
 system 'git commit -am "Make minor changes"'
